@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Image{% endblock %}
+
+{% block body %}
+    <center><h1>Create new ProviderHotelImg</h1></center>
+    <div class="main-content-agile" style="font-weight: 600; font-size: 130%">
+        {{ include('provider_hotel_img/_form.html.twig') }}
+        <a href="javascript:history.back()"><button class="btn btn-info">back to list</button></a>
+    </div>
+{% endblock %}

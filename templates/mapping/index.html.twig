@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mapping{% endblock %}
+
+{% block body %}
+{% set count = 0 %}
+
+    <table style="margin-top: 100px;">
+        <form action="{{ path('mapping') }}">
+        <thead>
+            <tr>
+                <th> </th>
+                <th></th>  
+            </tr>
+        </thead>
+        <tbody>
+            {% for providers in provider %}
+                <tr>
+                    <td>  <div style="margin-left: 150px; margin-top: 20px; font-weight: 600; font-size: 130%">-{{ providers.name }} :<br></div> </td>
+                    <td><select name='select' id="select" style="width: 500px; margin-top: 20px; height : 40px;" >
+                        <option disabled selected value>--{{ providers.name }}--</option>
+                        
+                            {% for value in hotel[count] %}
+                                <option value={{ value.id }} >{{ value.name }}</option>
+                            {% endfor %}</select></td>
+                    </tr>
+                    {% set count = count + 1 %}
+            {% endfor %}
+        </tbody>
+                                        
+    </table>
+<a><button onclick="return disableElement()" class="btn btn-info" style="margin-left: 1100px;margin-top: 30px;width: 200px">Mapper</button></a>
+
+</form>
+
+        <script>
+            function disableElement() {
+                var z=document.getElementById("select")
+                if (z.value=="" ){
+                    alert('champs vide');
+                    return false;
+                }
+            }
+        </script>
+
+{% endblock %}
+

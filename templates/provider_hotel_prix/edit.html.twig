@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ProviderHotelPrix{% endblock %}
+
+{% block body %}
+    <h1>Edit ProviderHotelPrix</h1>
+
+    {{ include('provider_hotel_prix/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="javascript:history.back()"><button class="btn btn-info">back to list</button></a>
+{% endblock %}

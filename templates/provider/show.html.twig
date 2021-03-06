@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Provider {{ provider.name|lower }}{% endblock %}
+{% block body %}
+    <center><h1>{{ provider.name }}</h1></center>
+    <div class="main-content-agile">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ provider.id }}</td>
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    <td>{{ provider.name }}</td>
+                </tr>
+                <tr>
+                    <th>Adresse</th>
+                    <td>{{ provider.adress }}</td>
+                </tr>
+                <tr>
+                    <th>Téléphone</th>
+                    <td>{{ provider.tel }}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{ provider.email }}</td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>{{ provider.description }}</td>
+                </tr>
+                <tr>
+                    <th>Link</th>
+                    <td>{{ provider.link }}</td>
+                </tr>
+                <tr>
+                    <th>Provider_ref</th>
+                    <td>{{ provider.providerRef ? 'Yes' : 'No' }}</td>
+                </tr>
+            </tbody>
+        </table>
+                <a href="javascript:history.back()"><button class="btn btn-info">back to list</button></a>
+        <a  href="{{ path('provider_edit', {'id': provider.id}) }}"><button class="btn btn-info">edit</button></a>
+        
+
+        </div>
+
+
+        
+        
+
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Crawling{% endblock %}
+
+{% block body %}
+<style>
+
+label {
+    display: block;
+    font: 1.5rem 'Fira Sans', sans-serif;
+    
+}
+.date {
+    width : 300px;
+    text-align: center;
+    border: 3px solid ;
+    margin-left: 50px
+  
+}
+
+h1{
+    color: 2A2929;
+    font-size: 1.5em;
+}
+
+</style>
+<div class="main-content-agile" style="margin-top: 50px;">
+        <h1>City:</h1>
+        <div>
+            {% for ville in villes %}
+                <input type="checkbox" onclick="myFunction(this)" name="check" data-valuetwo="{{ ville.ville }}">{{ ville.ville }}</input>
+            {% endfor %}
+        </div>
+        <h1>Hotel:</h1>
+    <form action="{{ path('crawling') }}">
+        <div id='int' style="display:bloc; margin-left:10px">Select city</div>
+        <div>
+            {% for ville in villes %}
+                <div id="{{ ville.ville }}" style="display:none">
+                    {% for hotel in hotels %}
+                        {% if  hotel.ville == ville.ville %}
+                            <input type="checkbox" value={{ hotel.id }} name="box" id="box">{{ hotel.name|upper }}</input>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+
+        <h1>Choose date:</h1>
+        <center>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            <label for="from" style='text-align: center;'>From:</label>
+                                <h1><input type="date" value="from" id="from" name="from" class='date'></input></h1>
+                        </th>
+                        <th>
+                            <label for="to:"style='text-align: center;'>&thinsp;&thinsp;&thinsp;To:</label>
+                            <h1><input type="date" value="to" id="to" name="to" class='date'></input></h1>
+                        </th>  
+                    </tr>
+                </thead>
+            </table>
+        </center>
+        <div style="margin-top: 50px"><h1> Trigger date:<input type="datetime-local" style="margin-left: 160px;border: 3px solid ;"></input></h1></div>
+        
+
+            
+        
+        <a><button onclick="return disableElement()" class="btn btn-info" style="margin-left: 700px;margin-top: 30px;width: 200px">Crawling</button></a>
+    </form>
+</div>
+
+
+
+
+<script>
+    function myFunction(e) {
+        var otherCheckbox = document.getElementsByName('check');
+        var int = document.getElementById('int');
+        var div=document.getElementById(e.getAttribute("data-valuetwo"));
+        if (e.checked){
+            div.style="display:bloc";
+            int.style="display:none";
+        }
+        else{
+            div.style="display:none";
+            int.style="display:bloc";
+        }    
+    }         
+    function disableElement() {
+        var z=document.getElementById("box")
+        if (z.value=="" ){
+            alert('champs vide');
+                return false;
+        }
+    }
+        
+</script>
+
+{% endblock %}

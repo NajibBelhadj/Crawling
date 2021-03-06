@@ -1,0 +1,30 @@
+{% extends 'base1.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <div class="main-content-agile">
+        <div class="sub-main-w4">	
+            <h2>Create Account</h2>
+                {{ form_start(registrationForm) }}
+                {{ form_row(registrationForm.firstName, {'label_attr': {'class': 'foo'}}) }}
+                {{ form_row(registrationForm.lastName, {'label_attr': {'class': 'foo'}}) }}
+                {{ form_row(registrationForm.email, {'label_attr': {'class': 'foo'}}) }}
+                <div class='foo'>{{ form_row(registrationForm.plainPassword) }}</div>
+                {{ form_row(registrationForm.agreeTerms, {'label_attr': {'class': 'foo'}}) }}
+                    <input type="submit" value="Registre">
+                {{ form_end(registrationForm) }}
+                </div>
+                    <div class="card-footer text-center">
+                <div class="nj"><a class="nj" href="/login">Have an account? Go to login</a></div>
+        </div>
+    </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+
+{% endblock %}
+
+
+
+

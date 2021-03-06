@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ProviderHotelPrix{% endblock %}
+
+{% block body %}
+    <h1>ProviderHotelPrix</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ provider_hotel_prix.id }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ provider_hotel_prix.prix }}</td>
+            </tr>
+            <tr>
+                <th>TypeDeChambre</th>
+                <td>{{ provider_hotel_prix.typeDeChambre }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="javascript:history.back()"><button class="btn btn-info">back to list</button></a>
+
+    <a href="{{ path('provider_hotel_prix_edit', {'id': provider_hotel_prix.id}) }}"><button class="btn btn-info">edit</button></a>
+
+
+{% endblock %}

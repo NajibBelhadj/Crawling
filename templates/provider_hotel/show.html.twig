@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hotel {{ provider_hotel.name|lower }}{% endblock %}
+
+{% block body %}
+    <center><h1>{{ provider_hotel.name }}</h1></center>
+    <div class="main-content-agile">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ provider_hotel.id }}</td>
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    <td>{{ provider_hotel.name }}</td>
+                </tr>
+                <tr>
+                    <th>Ville</th>
+                    <td>{{ provider_hotel.Ville }}</td>
+                </tr>
+                <tr>
+                    <th>Category</th>
+                    <td>{{ provider_hotel.category }}</td>
+                </tr>
+                <tr>
+                    <th>Link</th>
+                    <td>{{ provider_hotel.link }}</td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>{{ provider_hotel.description }}</td>
+                </tr>
+                <tr>
+                    <th>Provider</th>
+                    <td>{{ provider_hotel.provide }}</td>
+                </tr>
+                <tr>
+                    <th>Reference</th>
+                    <td>{{ provider_hotel.refe }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="javascript:history.back()"><button class="btn btn-info">back to list</button></a>
+
+        <a href="{{ path('provider_hotel_edit', {'id': provider_hotel.id}) }}"><button class="btn btn-info">edit</button></a>
+    </div>
+
+{% endblock %}

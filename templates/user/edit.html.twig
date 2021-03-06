@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin-left: 50px; margin-top: 30px }
+}
+
+</style>
+    <center><h1 class="example-wrapper">General Account Settings</h1></center>
+    <div class="main-content-agile" style="font-weight: 600; font-size: 130%">
+        {{ include('user/_form.html.twig', {'button_label': 'Save Changes'}) }}
+        <a href="{{ path('password_edit', {'id': app.user.id}) }}"><button class="btn btn-info">Reset Password</button</a>
+    </div>
+
+{% endblock %}

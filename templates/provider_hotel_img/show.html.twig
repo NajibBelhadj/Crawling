@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Image{% endblock %}
+
+{% block body %}
+    <center><h1>ProviderHotelImg</h1></center>
+    <div class="main-content-agile">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ provider_hotel_img.id }}</td>
+                </tr>
+                <tr>
+                    <th>Img</th>
+                    <td>{{ provider_hotel_img.img }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="javascript:history.back()"><button class="btn btn-info">back to list</button></a>
+
+        <a href="{{ path('provider_hotel_img_edit', {'id': provider_hotel_img.id}) }}"><button class="btn btn-info">edit</button></a>
+    </div>
+
+
+{% endblock %}

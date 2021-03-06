@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit {{ provider.name|lower }}{% endblock %}
+
+{% block body %}
+    <center><h1>Edit Provider</h1></center>
+    <div class="main-content-agile" style="font-weight: 600; font-size: 130%">
+        {{ include('provider/_form.html.twig', {'button_label': 'Update'}) }}
+    
+        <a href="javascript:history.back()"><button class="btn btn-info">back to list</button></a>
+    </div>
+
+{% endblock %}
